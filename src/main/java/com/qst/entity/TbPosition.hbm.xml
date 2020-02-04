@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-5 19:53:10 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="true" dynamic-update="true" mutable="true" name="com.qst.entity.TbPosition" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_position">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name">
+            </column>
+        </property>
+
+      <property generated="never" lazy="false" name="CId" optimistic-lock="true" type="java.lang.Integer" unique="false" >
+            <column name="c_id" >
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="salaryMin" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="salary_min">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="salaryMax" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="salary_max">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="category" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="category">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="type" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="type">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="address" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="address">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="education" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="education">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="tag" optimistic-lock="true" type="string" unique="false">
+            <column name="tag">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="create_time">
+            </column>
+        </property>
+        
+        <property generated="never" lazy="false" name="endTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="end_time">
+            </column>
+        </property>
+        
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column name="description">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="update_time">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="status">
+            </column>
+        </property>
+        
+
+        <many-to-one name="company" lazy="false" column="c_id" class="com.qst.entity.TbCompany" insert="false" update="false"></many-to-one>
+
+        
+    </class>
+</hibernate-mapping>

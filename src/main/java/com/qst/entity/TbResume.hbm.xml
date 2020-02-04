@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-5 19:53:10 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="true" dynamic-update="true" mutable="true" name="com.qst.entity.TbResume" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_resume">
+        <id name="id" type="int">
+            <column name="id"/>
+             <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="UId" optimistic-lock="true" type="java.lang.Integer" unique="false"  >
+            <column name="u_id">
+            </column>
+        </property> 
+        <property generated="never" lazy="false" name="workExperience" optimistic-lock="true" type="string" unique="false">
+            <column name="work_experience">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="forwordJob" optimistic-lock="true" type="string" unique="false">
+            <column name="forword_job">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="education" optimistic-lock="true" type="string" unique="false">
+            <column name="education">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="summary" optimistic-lock="true" type="string" unique="false">
+            <column name="summary">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="skill" optimistic-lock="true" type="string" unique="false">
+            <column name="skill">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="update_time">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="projectExperience" optimistic-lock="true" type="string" unique="false">
+            <column name="project_experience">
+            </column>
+        </property>
+        
+          <many-to-one name="tbUser" class="com.qst.entity.TbUser"  lazy="false" column="u_id"   insert="false" update="false"  />  
+        
+    </class>
+</hibernate-mapping>

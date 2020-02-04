@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 每个人把自己的文件导入这里 格式如下 <include file="struts-vote.xml" /> -->
+
+	<package name="" namespace="/" extends="struts-default">
+		<action name="show" class="testAction" method="show">
+			<result name="success">index.jsp</result>
+		</action>
+	</package> 
+</struts>

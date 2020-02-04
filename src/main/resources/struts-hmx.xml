@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- package 命名用文件前缀+编号 -->
+	<package name="hmx-1" namespace="/" extends="struts-default">
+	<!-- 处理密码登录的action -->
+		<action name="login" class="com.qst.action.hmx.LoginAction" method="login">
+			<result name="success">/index.jsp</result>
+		</action>
+		<!-- 处理快速登录 -->
+			<action name="logintwo" class="com.qst.action.hmx.LoginAction" method="logintwo">
+			<result name="success">/index.jsp</result>
+		</action>
+		<!--    退出登录 -->
+		<action name="loginout" class="com.qst.action.hmx.LoginAction" method="loginout">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		
+		
+	<!-- 	处理个人申请过的求职列表action -->
+		<action name="personAppList" class="com.qst.action.hmx.PersonApplistAction" method="personappList">
+			<result name="success">/person-app-list.jsp</result>
+		</action>
+	<!-- 取消职位申请的action -->
+	   <action name="updatePersonApp" class="com.qst.action.hmx.PersonApplistAction" method="update">
+			<result name="success" type="redirectAction">personAppList</result>
+		</action>
+		
+		<!-- 企业查看申请的职位列表 -->
+		 <action name="companyMAppList" class="com.qst.action.hmx.CompanyMAppListAction" method="companyMAppList">
+			<result name="success">/application-management.jsp</result>
+		</action>
+		
+		<!-- 企业同意申请的action -->
+	   <action name="updatecompanyMApp" class="com.qst.action.hmx.CompanyMAppListAction" method="updatecompanyMApp">
+			<result name="success" >/application-management.jsp</result>
+		</action>
+		
+		<!-- 首页前6个公司显示以及 前2个职位显示-->
+		   <action name="hotJoblist" class="com.qst.action.hmx.HotJobListAction" method="hotJoblist">
+			<result name="success" >/index.jsp</result>
+		</action>
+		
+		
+	
+		
+	</package> 
+</struts>

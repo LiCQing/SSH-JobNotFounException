@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-5 19:53:10 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="true" dynamic-update="true" mutable="true" name="com.qst.entity.TbCollect" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_collect">
+        <id name="id" type="int">
+            <column name="id"/>
+             <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="UId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="u_id"/>
+        </property>
+        <property generated="never" lazy="false" name="PId" optimistic-lock="true" type="java.lang.Integer" unique="false" >
+            <column name="p_id"/>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false" >
+            <column length="19" name="create_time"/>
+        </property>
+        <many-to-one name="tbPosition" class="com.qst.entity.TbPosition"  lazy="false" column="p_id"  insert="false" update="false" />  
+    </class>
+</hibernate-mapping>

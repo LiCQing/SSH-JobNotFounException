@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="li-1" namespace="/" extends="myInterceptor">
+		<action name="positionlist" class="positionAction" method="allPosition">
+			<result type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+
+		<action name="jobdetail" class="positionAction" method="viewPosition">
+			<interceptor-ref name="borwseHistory"></interceptor-ref>
+			<result>
+				/job-details.jsp
+			</result>
+		</action>
+		
+			<action name="companydetail" class="companyAction" method="viewCompany">
+			<result>
+				/company-details.jsp
+			</result>
+		</action>
+		
+		
+		<action name="changebsi" class="testAction" method="show">
+		 	<result name="success">
+		 		/company-businessinfo.jsp
+		 	</result>
+		</action>
+	</package>
+
+
+	<package name="li-2" namespace="/user" extends="json-default">
+		<action name="apply" class="positionAction" method="applyPosition">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="collect" class="positionAction" method="collectPosition">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="uploadHead" class="userInfoAction" method="uploadUserHeader">
+			<result type="json">
+				<param name="root">headUrl</param>
+			</result>
+		</action>
+		<!-- 获取收藏列表 -->
+		<action name="collectList" class="collectAction" method="collectlist">
+			<result name="success">
+				/apply.jsp
+			</result>
+		</action>
+          <!-- 取消收藏 -->
+		<action name="collectDelete" class="collectAction" method="collectDelete">
+			<result name="success" type="redirectAction">
+			collectList
+			</result>
+		</action>
+	</package>
+	
+	<package name="li-3" namespace="/company" extends="json-default">
+		
+		<action name="publishImg" class="companyAction" method="excute">
+			<result  >
+			/index.jsp
+			</result>
+			
+		</action>
+		<action name="uploadHead" class="companyAction" method="uploadHeader">
+			<result type="json">
+					<param name="root">headUrl</param>
+				</result>
+		</action>
+	</package>
+</struts>

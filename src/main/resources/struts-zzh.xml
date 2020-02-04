@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 每个人把自己的文件导入这里 格式如下 <include file="struts-vote.xml" /> -->
+
+     <!-- 设置上传图片的默认最大值 -->
+ <!--    <constant name="struts.multipart.maxsize" value="5000000000"/> -->
+	<package name="zzh-1" namespace="/" extends="struts-default">
+	<action name="updateUser" class="com.qst.action.zzh.UserUpdateAction" method="updateUser">
+	  <result name="success">/base-info.jsp</result>
+	</action>
+	<action name="usermessageUpdate" class="com.qst.action.zzh.UserUpdateAction" method="usermessageUpdate">
+	  <result name="success">/base-info.jsp</result>
+	
+	</action>
+	<action name="updateCompany" class="com.qst.action.zzh.CompanyUpdateAction" method="updateCompany">
+	   <result name="success">/employer-dashboard-edit-profile.jsp</result>
+	   <result name="error">/employer-dashboard-edit-profile.jsp</result> 
+	</action>
+	<action name="addPosition" class="positionAction" method="addPosition">
+	   <result name="success" type="redirectAction">company/companylist</result>
+	   <result name="error">/publish.jsp</result> 
+	</action>
+	
+	<action name="toUpdate" class="positionAction" method="toUpdate">
+	   <result name="success" >/publish.jsp </result>
+	   <result name="error">/index.jsp</result>
+	</action>
+	
+	<action name="updatePosition" class="positionAction" method="updatePosition">
+	   <result name="success" type="redirectAction">/company/companylist</result>
+	   <result name="error">/index.jsp</result>
+	</action>
+	<action name="upload" class="com.qst.action.zzh.UploadFileAction" method="upload">
+	   <result name="success" type="redirectAction">resumeList</result>
+	</action>
+	<action name="resumeList" class="com.qst.action.zzh.ResumeListAction" method="resumeList">
+	   <result name="success">/user-resume-file-list.jsp</result>
+	</action>
+	<action name="showCompany" class="com.qst.action.zzh.CompanyListAction" method="showCompany">
+	   <result name="success">/company-base-info.jsp</result>
+	   <result name="error">/employer-dashboard-edit-profile.jsp</result> 
+	</action>
+	<action name="searchPosition" class="com.qst.action.zzh.SearchPositionAction" method="searchPosition">
+	   <result name="success">/search.jsp</result>
+	   <result name="error">/employer-dashboard-edit-profile.jsp</result> 
+	</action>
+	</package> 
+</struts>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-5 19:53:10 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="true" dynamic-update="true" mutable="true" name="com.qst.entity.TbCompany" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_company">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="scale" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="scale">
+            </column>
+        </property>
+	
+	  <property generated="never" lazy="false" name="account" optimistic-lock="true" type="string" unique="false">
+            <column name="account">
+            </column>
+        </property>
+        
+        	  <property generated="never" lazy="false" name="pwd" optimistic-lock="true" type="string" unique="false">
+            <column name="pwd">
+            </column>
+        </property>
+        
+        
+        <property generated="never" lazy="false" name="tag" optimistic-lock="true" type="string" unique="false">
+            <column name="tag">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="head" optimistic-lock="true" type="string" unique="false">
+            <column name="head">
+            </column>
+        </property>
+        
+         <property generated="never" lazy="false" name="detailAddress" optimistic-lock="true" type="string" unique="false">
+            <column name="detail_address">
+            </column>
+        </property>
+        
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column name="description">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="publicityImg" optimistic-lock="true" type="string" unique="false">
+            <column name="publicity_img">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="businessInfo" optimistic-lock="true" type="string" unique="false">
+            <column name="business_info">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="hrName" optimistic-lock="true" type="string" unique="false">
+            <column name="hr_name">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="chrContec" optimistic-lock="true" type="string" unique="false">
+            <column name="chr_contec">
+            </column>
+        </property>
+        
+            <property generated="never" lazy="false" name="headerUrl" optimistic-lock="true" type="string" unique="false">
+            <column name="header_url">
+            </column>
+        </property>
+        
+         <property generated="never" lazy="false" name="status" optimistic-lock="true" type="int" unique="false">
+            <column name="status">
+            </column>
+        </property>
+        
+        <property generated="never" lazy="false" name="locationPoint" optimistic-lock="true" type="string" unique="false">
+            <column name="location_point">
+            </column>
+        </property>
+        
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="create_time">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

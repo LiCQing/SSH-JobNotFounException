@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 每个人把自己的文件导入这里 格式如下 <include file="struts-vote.xml" /> -->
+	
+	<constant name="struts.action.excludePattern" value="/websocket/.*"></constant>
+	
+	<include file="struts-test.xml" />
+    <include file="struts-zzh.xml" />
+	<include file="struts-zwy.xml" />
+	<include file="struts-li.xml" />
+	 <include file="struts-hmx.xml" />
+	 <include file="struts-interceptor.xml" />
+	 
+	<package name="expor-resume" extends="json-default" namespace="/export">
+		<action name="resume" class="exportAction" method="exportResume">
+			<result name="success" type="stream"> 
+		         <param name="contentType">application/pdf;charset=utf-8</param>  
+		         <param name="inputName">pdfStream</param>
+		         <param name="contentDisposition">attachment;filename="${fileName}.pdf"</param>
+		         <param name="bufferSize">1024</param>
+		    </result> 
+		</action>
+	</package>
+	 
+</struts>

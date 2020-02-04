@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+ http://www.springframework.org/schema/aop 
+ http://www.springframework.org/schema/aop/spring-aop.xsd 
+ 
+  http://www.springframework.org/schema/util 
+  http://www.springframework.org/schema/util/spring-util-2.5.xsd 
+  http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<context:property-placeholder location="classpath:jdbcConfig.properties" />
+
+	<!--配置数据源 -->
+	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+
+		<!-- 配置hibernate相关参数 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!--  <prop key="hibernate.show_sql">true</prop> 
+				<prop key="hibernate.format_sql">true</prop>  
+ -->
+				<!-- 开启二级缓存 <prop key="hibernate.cache.use_second_level_cache">true</prop> -->
+				<!-- 指定二级缓存驱动类 <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> -->
+				<!-- 开启查询缓存 <prop key="hibernate.cache.use_query_cache">true</prop> -->
+			</props>
+		</property>
+
+		<!-- 实体映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/qst/entity/TbAdmin.hbm.xml</value>
+				<value>com/qst/entity/TbUser.hbm.xml</value>
+				<value>com/qst/entity/TbApply.hbm.xml</value>
+				<value>com/qst/entity/TbCollect.hbm.xml</value>
+				<value>com/qst/entity/TbCompany.hbm.xml</value>
+				<value>com/qst/entity/TbPosition.hbm.xml</value>
+				<value>com/qst/entity/TbResume.hbm.xml</value>
+				<value>com/qst/entity/TbResumeFile.hbm.xml</value>
+				<value>com/qst/entity/BtBrowshistory.hbm.xml</value>
+				<value>com/qst/entity/TbChatHistory.hbm.xml</value> 
+			</list>
+		</property>
+	</bean>
+	<!-- 配置事务 -->
+	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+		id="txManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="execute*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:advisor pointcut="within(com.qst.dao.*)"
+			advice-ref="txAdvice" />
+	</aop:config>
+
+	<!-- 开启注解扫描 -->
+	<context:component-scan base-package="com.qst" />
+
+
+
+</beans>
+
+
+
+
+
+
+
+
+

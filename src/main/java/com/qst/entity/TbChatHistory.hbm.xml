@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-10 14:53:52 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="true" dynamic-update="true" mutable="true" name="com.qst.entity.TbChatHistory" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_chat_history">
+        <id name="id" type="int">
+            <column name="id"/>
+        <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="sendId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="send_id">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="receiveId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="receive_id">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="msg" optimistic-lock="true" type="string" unique="false">
+            <column name="msg">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="status">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="create_time">
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="readTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="read_time">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

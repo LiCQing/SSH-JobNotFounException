@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-8-5 19:53:10 by Hibernate Tools 5.1.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.qst.entity.TbAdmin" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tb_admin">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="native"/>
+        </id>
+        <property generated="never" lazy="false" name="account" optimistic-lock="true" type="string" unique="false">
+            <column name="account"/>
+        </property>
+        <property generated="never" lazy="false" name="pwd" optimistic-lock="true" type="string" unique="false">
+            <column name="pwd"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="status"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 每个人把自己的文件导入这里 格式如下 <include file="struts-vote.xml" /> -->
+
+		<!-- 企业注册 -->
+	<package name="zwy-1" namespace="/" extends="json-default">
+		<action name="register" class="registerAction" method="register">
+			<result name="success">/login.html</result>
+		</action>
+
+		<action name="verify" class="registerAction" method="getverifyCode">
+			<result name="success" type="stream">
+				<param name="inputName">codeInput</param>
+			</result>
+		</action>
+		<action name="checkCode" class="registerAction" method="checkCode">
+			<result name="success" type="json" >
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="checkphone" class="registerAction" method="checkphone">
+		  <result name="success" type="json">
+		    <param name="root">result</param>
+		  </result>
+		</action>
+		<action name="getCode" class="registerAction" method="getCode">
+		<result name="success" type="json">result
+		</result>
+		</action>
+		<action name="CheckCode" class="registerAction" method="CheckCode">
+			<result  name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 公司职位列表显示和删除 -->
+	
+	<package name="zwy-2" namespace="/company" extends="json-default">
+	  <action name="companylist" class="companyJobListAction" method="companylist">
+	    <result name="success">
+	    /company_job_list.jsp
+	    </result>
+	  </action>
+	<action name="companyDelete" class="companyJobListAction" method="companyDelete" >
+	   <result name="companylist" type="redirectAction">companylist</result>
+	</action>
+	<action name="CheckOldPassword" class="companyUpdatePasswordAction" method="CheckOldPassword">
+		  <result name="success" type="json">
+		    <param name="root">result</param>
+		  </result>
+		</action>
+		<action name="updateCompanyPassword" class="companyUpdatePasswordAction" method="updateCompanyPassword">
+		  <result name="success" type="json">
+		    <param name="root">result</param>
+		</action>
+	</package>
+	
+	<!-- 简历填写与编辑 -->
+	<package name="zwy-3" namespace="/resume" extends="json-default">
+	 <action name="show" class="resumeAction" method="show">
+	    <result name="success">/resume2.jsp</result>
+	 </action>
+	  <action name="addResume" class="resumeAction" method="addResume">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 <!-- 删除简历信息 -->
+	 <action name="deleteResumePro" class="resumeAction" method="deleteResumePro">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 <action name="deleteResumeedu" class="resumeAction" method="deleteResumeedu">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 <action name="deleteResumework" class="resumeAction" method="deleteResumework">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 <action name="deleteResumewant" class="resumeAction" method="deleteResumewant">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 
+	 <!-- 更新简历信息 -->
+	 <action name="resumesummary" class="resumeAction" method="resumesummary">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	  <action name="wanted" class="resumeAction" method="wanted">
+	    <result name="success"  type="redirectAction">lookResume</result>
+	 </action>
+	  <action name="project" class="resumeAction" method="project">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	  <action name="wordexperiecnce" class="resumeAction" method="wordexperiecnce">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	  <action name="education" class="resumeAction" method="education">
+	    <result name="success" type="redirectAction">lookResume</result>
+	 </action>
+	 <action name="lookResume" class="resumeAction" method="lookResume">
+	 <result name="success" >/user-resume.jsp</result>
+	 </action>
+	
+	</package>
+	
+	
+</struts>
